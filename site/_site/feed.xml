@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SafetyJandals.com</title>
+    <description>SafetyJandals.com, where comfort meets prudence.</description>
+    <link>http://safetyjandals.com/</link>
+    <atom:link href="http://safetyjandals.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 31 Mar 2016 02:24:07 +1300</pubDate>
+    <lastBuildDate>Thu, 31 Mar 2016 02:24:07 +1300</lastBuildDate>
+    <generator>Jekyll v3.1.2</generator>
+    
+  </channel>
+</rss>
