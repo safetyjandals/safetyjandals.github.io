@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magnet Turner - Physics Simulation</title>
+    <style>
+        :root {
+            --bg-color: #000;
+            --text-color: #0f0;
+            --primary-color: #0f0;
+            --canvas-border: #0f0;
+            --canvas-glow: #0f0;
+            --canvas-cursor: crosshair;
+        }
+        
+        [data-theme="light"] {
+            --bg-color: #fafafa;
+            --text-color: #008b8b;
+            --primary-color: #008b8b;
+            --canvas-border: #008b8b;
+            --canvas-glow: #20b2aa;
+            --canvas-cursor: crosshair;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        h1, h2 {
+            text-align: center;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: justify;
+        }
+        
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid var(--canvas-border);
+            box-shadow: 0 0 20px var(--canvas-glow);
+            cursor: var(--canvas-cursor);
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--bg-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 15px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--canvas-glow);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 15px var(--canvas-glow);
+        }
+        
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            padding: 10px;
+            background: var(--primary-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 5px;
+            max-width: 200px;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+    
+    <h1>Magnet Turner - Physics Simulation</h1>
+    
+    <a href="index.html" class="back-link">← Back to Main Page</a>
+    
+    <h2>Magnet Turner</h2>
+    <div class="canvas-container">
+        <canvas id="magnetTurnerCanvas"></canvas>
+        <div style="margin: 20px 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="autoAngle" style="margin-right: 10px;">Auto Angle</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="backEMF" style="margin-right: 10px;">Back EMF</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="torqueRipple" style="margin-right: 10px;">Torque Ripple</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="fieldWeakening" style="margin-right: 10px;">Field Weakening</label>
+            <label style="display: block; margin: 10px 0;">Angle: <input type="range" id="angleSlider" min="-180" max="180" value="90" style="width: 200px; margin-left: 10px;"></label>
+        </div>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h3>About the Magnet Turner Simulation</h3>
+        <p>This simulation demonstrates magnetic field interactions between a rotor and stator in an electric motor. You can interact with the simulation using mouse controls and the checkboxes above.</p>
+        
+        <h4>Controls:</h4>
+        <ul style="text-align: left;">
+            <li><strong>Mouse:</strong> Click and drag to manually control the stator angle</li>
+            <li><strong>Auto Angle:</strong> Enable automatic angle control based on rotor position</li>
+            <li><strong>Back EMF:</strong> Simulate back electromotive force effects</li>
+            <li><strong>Torque Ripple:</strong> Show torque ripple effects on the stator</li>
+            <li><strong>Field Weakening:</strong> Enable field weakening simulation</li>
+            <li><strong>Angle Slider:</strong> Adjust the phase angle when Auto Angle is enabled</li>
+            <li><strong>Run/Stop Button:</strong> Toggle the simulation on/off (bottom-right corner)</li>
+        </ul>
+        
+        <p>The oscilloscope at the bottom shows real-time angular velocity data. The simulation includes realistic physics calculations for torque, angular acceleration, and magnetic field interactions.</p>
+    </div>
+
+    <script src="magnetTurner.js"></script>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            
+            if (body.hasAttribute('data-theme')) {
+                // Switch to dark mode
+                body.removeAttribute('data-theme');
+                button.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                body.setAttribute('data-theme', 'light');
+                button.textContent = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const button = document.querySelector('.theme-toggle');
+            
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                button.textContent = '🌙 Dark Mode';
+            } else {
+                button.textContent = '☀️ Light Mode';
+            }
+        });
+    </script>
+</body>
+</html>

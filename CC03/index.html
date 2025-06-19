@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physics Simulation and Block Diagram Editor</title>
+    <style>
+        :root {
+            --bg-color: #000;
+            --text-color: #0f0;
+            --primary-color: #0f0;
+            --canvas-border: #0f0;
+            --canvas-glow: #0f0;
+            --canvas-cursor: crosshair;
+        }
+        
+        [data-theme="light"] {
+            --bg-color: #fafafa;
+            --text-color: #008b8b;
+            --primary-color: #008b8b;
+            --canvas-border: #008b8b;
+            --canvas-glow: #20b2aa;
+            --canvas-cursor: crosshair;
+        }
+        
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        h1, h2 {
+            text-align: center;
+            text-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            text-align: justify;
+        }
+        
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 2px solid var(--canvas-border);
+            box-shadow: 0 0 20px var(--canvas-glow);
+            cursor: var(--canvas-cursor);
+        }
+        
+        .canvas-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--bg-color);
+            border: 2px solid var(--primary-color);
+            padding: 10px 15px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px var(--canvas-glow);
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 15px var(--canvas-glow);
+        }
+        
+        .docs-section h3 {
+            color: var(--primary-color);
+            margin-top: 30px;
+        }
+        
+        .docs-section ul {
+            text-align: left;
+            color: var(--text-color);
+        }
+        
+        .docs-section strong {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">☀️ Light Mode</button>
+    
+    <h1>Physics Simulation and Block Diagram Editor</h1>
+    
+    <h2>Example 0</h2>
+    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+    <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.</p>
+    
+    <div class="canvas-container">
+        <canvas id="canvas0" width="1200" height="600"></canvas>
+    </div>
+    
+    <h2>Example 1</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+    
+    <div class="canvas-container">
+        <canvas id="canvas1" width="1200" height="600"></canvas>
+    </div>
+    
+    <h2>Command Documentation</h2>
+    <p><strong>How to use:</strong> Press SPACEBAR while hovering over a canvas to open the command menu, then type any of the following commands:</p>
+    
+    <div class="docs-section" style="max-width: 800px; margin: 0 auto;">
+        <h3>Block Creation Commands</h3>
+        <ul>
+            <li><strong>inNum</strong> - Creates a number input block that can be edited by clicking on it</li>
+            <li><strong>inSlider</strong> - Creates a compact slider input block (range -10 to +10, default 0, click and drag to adjust, double-click to edit parameters)</li>
+            <li><strong>outNum</strong> - Creates a compact number output block to display values (3x1 grid squares)</li>
+            <li><strong>multiply</strong> - Creates a multiplication block with two inputs and one output</li>
+            <li><strong>divide</strong> - Creates a division block (top input ÷ bottom input)</li>
+            <li><strong>gain</strong> - Creates a triangular gain block that multiplies input by adjustable gain value</li>
+            <li><strong>offset</strong> - Creates a circular offset block that adds adjustable offset value to input</li>
+            <li><strong>20log10</strong> - Creates a logarithmic block that computes 20*log10(input)</li>
+            <li><strong>10log10</strong> - Creates a logarithmic block that computes 10*log10(input)</li>
+            <li><strong>sineGen</strong> - Creates a sine wave generator with input ports for amplitude, frequency (Hz), and phase (radians)</li>
+            <li><strong>deg2rad</strong> - Creates a degree to radian converter block (input in degrees, output in radians)</li>
+            <li><strong>rad2deg</strong> - Creates a radian to degree converter block (input in radians, output in degrees)</li>
+            <li><strong>sineAnalyser</strong> - Creates a sine wave analyser with 2 inputs and 5 outputs (top frequency, top amplitude, bottom frequency, bottom amplitude, phase difference in radians)</li>
+            <li><strong>clock</strong> - Creates a pulse generator outputting 1 pulse every N seconds (click to edit interval, supports fractions like 0.1 for 10Hz)</li>
+            <li><strong>counter</strong> - Creates a pulse counter with CLK (pulse) and RST (reset) inputs, configurable start/stop/step values (double-click to edit parameters)</li>
+            <li><strong>selector</strong> - Creates a 2-input selector switch with visual switch diagram (double-click to toggle between inputs A and B)</li>
+            <li><strong>xyPlot</strong> - Creates an XY scatter plot with X, Y, CLK (clock), and CLR (clear) inputs. Points are plotted when CLK transitions from 0 to 1, plot is cleared when CLR transitions from 0 to 1 (double-click to edit axis limits and toggle log scales)</li>
+            <li><strong>massOnPlane</strong> - Creates a basic physics simulation block (mass on a plane)</li>
+            <li><strong>springMassDamper</strong> - Creates a spring-mass-damper physics system block (double-click to edit mass, spring constant, damping coefficient)</li>
+            <li><strong>graph</strong> - Creates a real-time graph block with dual Y-axis scaling (double-click to edit Y-axis limits)</li>
+            <li><strong>text</strong> - Creates a text block with no border (double-click to edit text content)</li>
+            <li><strong>nodeOut</strong> - Creates an output node with ball-shaped connector (double-click to edit label). Signals from matching labels are wirelessly transmitted</li>
+            <li><strong>nodeIn</strong> - Creates an input node with socket-shaped connector (double-click to edit label). Receives signals from nodeOut blocks with matching labels</li>
+        </ul>
+        
+        <h3>Utility Commands</h3>
+        <ul>
+            <li><strong>grid</strong> - Toggles snap grid on/off for precise block alignment</li>
+            <li><strong>a2g</strong> - Aligns all blocks to the nearest grid points</li>
+            <li><strong>delete</strong> - Toggles delete mode with crosshair cursor to remove blocks</li>
+            <li><strong>disconnect</strong> - Removes all connections between blocks (keeps blocks intact)</li>
+            <li><strong>clearAll</strong> - Removes all blocks and connections from the canvas (complete reset)</li>
+            <li><strong>save</strong> - Saves the current canvas state to a timestamped JSON file (excludes graph data for smaller files)</li>
+            <li><strong>saveall</strong> - Saves the current canvas state with all graph and plot data included</li>
+            <li><strong>load</strong> - Opens a file dialog to load a previously saved canvas state</li>
+            <li><strong>lockMove</strong> - Toggles movement lock on/off (prevents dragging blocks when enabled, useful for educational demos)</li>
+            <li><strong>lockSpace</strong> - Toggles space menu lock on/off (prevents command menu from opening when enabled, useful for educational demos)</li>
+            <li><strong>lockZoom</strong> - Toggles zoom lock on/off (prevents mouse wheel zoom when enabled, useful for educational demos)</li>
+            <li><strong>lockPan</strong> - Toggles camera panning lock on/off (prevents viewport movement when enabled, useful for educational demos)</li>
+            <li><strong>lockConnectors</strong> - Toggles connector editing lock on/off (prevents creating, removing, or modifying connections when enabled)</li>
+            <li><strong>lockFocus</strong> - Toggles focus lock on/off (prevents window reordering, blocks maintain their z-order regardless of clicks)</li>
+            <li><strong>lockSpaceAndSave</strong> - Locks the spacebar menu and saves the state with "SpacebarLocked" in filename (for creating locked demo files)</li>
+        </ul>
+        
+        <h3>Controls</h3>
+        <ul>
+            <li><strong>Mouse wheel</strong> - Zoom in/out (centers on cursor position)</li>
+            <li><strong>Right-click + drag</strong> - Pan the camera view</li>
+            <li><strong>Left-click + drag</strong> - Move blocks around the canvas</li>
+            <li><strong>'x' key</strong> - Flip block left-to-right (hover over block and press 'x' to swap input/output sides)</li>
+            <li><strong>Drag from output ports (hollow circles)</strong> - Connect to input ports (filled circles) - one output can connect to many inputs</li>
+            <li><strong>Click input ports (filled circles)</strong> - Disconnect all connections to that input</li>
+            <li><strong>Click input values</strong> - Edit number inputs directly</li>
+            <li><strong>Double-click graph blocks</strong> - Edit Y-axis limits (use ↓/↑ arrow keys to navigate fields, Enter to save, Esc to cancel)</li>
+            <li><strong>Double-click spring-mass-damper blocks</strong> - Edit physics parameters (mass, spring constant, damping coefficient)</li>
+            <li><strong>Double-click XY plot blocks</strong> - Edit axis limits (use ↓/↑ arrow keys to navigate xMin/xMax/yMin/yMax, 'x'/'y' keys to toggle log scales, Enter to save, Esc to cancel)</li>
+            <li><strong>Double-click slider blocks</strong> - Edit slider parameters (use ↓/↑ arrow keys to navigate min/max/value, Enter to save, Esc to cancel)</li>
+            <li><strong>Click and drag on slider track</strong> - Adjust slider value interactively</li>
+        </ul>
+    </div>
+    
+    <h2>Example 2</h2>
+    <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+    
+    <div class="canvas-container">
+        <canvas id="canvas2" width="1200" height="600"></canvas>
+    </div>
+
+    <h2>Magnet Turner</h2>
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="index1.html" style="display: inline-block; padding: 15px 30px; background: var(--primary-color); color: var(--bg-color); text-decoration: none; border-radius: 5px; font-family: 'Courier New', monospace; font-weight: bold; transition: all 0.3s ease; box-shadow: 0 0 10px var(--canvas-glow);">
+            View Magnet Turner Simulation →
+        </a>
+    </div>
+
+    <!-- <h2>Magnet Turner</h2>
+    <div class="canvas-container">
+        <canvas id="magnetTurnerCanvas"></canvas>
+        <div style="margin: 20px 0; text-align: left; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="autoAngle" style="margin-right: 10px;">Auto Angle</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="backEMF" style="margin-right: 10px;">Back EMF</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="torqueRipple" style="margin-right: 10px;">Torque Ripple</label>
+            <label style="display: block; margin: 5px 0;"><input type="checkbox" id="fieldWeakening" style="margin-right: 10px;">Field Weakening</label>
+            <label style="display: block; margin: 10px 0;">Angle: <input type="range" id="angleSlider" min="-180" max="180" value="90" style="width: 200px; margin-left: 10px;"></label>
+        </div>
+    </div> -->
+
+    <script>
+        // Embedded MassOnPlane demo data
+        window.MASS_ON_PLANE_DEMO = {
+          "camera": {
+            "x": -348.7626718041715,
+            "y": -254.1866773989609,
+            "zoom": 5
+          },
+          "windows": [
+            {
+              "x": -450,
+              "y": -325,
+              "width": 200,
+              "height": 140,
+              "title": "Mass on Plane",
+              "type": "physicsBasic",
+              "blockName": "physicsBasic_1",
+              "flipped": false,
+              "value": 0.1331727422678258,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "physicsBasic_1_input_0",
+                  "x": -450,
+                  "y": -255,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "physicsBasic_1_output_0",
+                  "x": -250,
+                  "y": -297,
+                  "type": "output",
+                  "value": -92.38951016767267
+                },
+                {
+                  "id": "physicsBasic_1_output_1",
+                  "x": -250,
+                  "y": -269,
+                  "type": "output",
+                  "value": 0.1331727422678258
+                },
+                {
+                  "id": "physicsBasic_1_output_2",
+                  "x": -250,
+                  "y": -241,
+                  "type": "output",
+                  "value": 0.09015010700966997
+                }
+              ],
+              "physics": {
+                "x": 7.610489832327328,
+                "y": 92.5,
+                "velocity": {
+                  "x": 0.1331727422678258,
+                  "y": 0
+                },
+                "acceleration": {
+                  "x": 0.09015010700966997,
+                  "y": 0
+                },
+                "type": "physicsBasic",
+                "windowX": -450,
+                "windowY": -325,
+                "windowWidth": 200,
+                "windowHeight": 140,
+                "mass": 0.1,
+                "friction": 0.1,
+                "size": 15,
+                "groundY": 100
+              },
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "plotData": []
+            },
+            {
+              "x": -325.4,
+              "y": -218.6,
+              "width": 75,
+              "height": 25,
+              "title": "",
+              "type": "outputNumber",
+              "blockName": "outputNumber_1",
+              "flipped": false,
+              "value": 0.009015010700966997,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "outputNumber_1_input_0",
+                  "x": -325.4,
+                  "y": -206.1,
+                  "type": "input",
+                  "value": 0
+                }
+              ],
+              "physics": null,
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "plotData": []
+            },
+            {
+              "x": -450,
+              "y": -218.4,
+              "width": 125,
+              "height": 25,
+              "title": "",
+              "type": "inputSlider",
+              "blockName": "inputSlider_1",
+              "flipped": true,
+              "value": 0.009015010700966997,
+              "min": -10,
+              "max": 10,
+              "step": 1,
+              "focused": true,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "inputSlider_1_output_0",
+                  "x": -450,
+                  "y": -205.9,
+                  "type": "output",
+                  "value": 0.009015010700966997
+                }
+              ],
+              "physics": null,
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "plotData": []
+            },
+            {
+              "x": -387.59999999999997,
+              "y": -325,
+              "width": 75,
+              "height": 25,
+              "title": "",
+              "type": "outputNumber",
+              "blockName": "outputNumber_2",
+              "flipped": true,
+              "value": -92.39172971337713,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "outputNumber_2_input_0",
+                  "x": -312.59999999999997,
+                  "y": -312.5,
+                  "type": "input",
+                  "value": 0
+                }
+              ],
+              "physics": null,
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "plotData": []
+            }
+          ],
+          "connectors": [
+            {
+              "id": "inputSlider_1_output_0_to_physicsBasic_1_input_0",
+              "startPortId": "inputSlider_1_output_0",
+              "endPortId": "physicsBasic_1_input_0",
+              "nodes": []
+            },
+            {
+              "id": "inputSlider_1_output_0_to_outputNumber_1_input_0",
+              "startPortId": "inputSlider_1_output_0",
+              "endPortId": "outputNumber_1_input_0",
+              "nodes": []
+            },
+            {
+              "id": "physicsBasic_1_output_0_to_outputNumber_2_input_0",
+              "startPortId": "physicsBasic_1_output_0",
+              "endPortId": "outputNumber_2_input_0",
+              "nodes": []
+            }
+          ],
+          "blockCounters": {
+            "inputNumber": 0,
+            "deg2rad": 0,
+            "sineGen": 0,
+            "gain": 0,
+            "graph": 0,
+            "springMassDamper": 0,
+            "outputNumber": 2,
+            "physicsBasic": 1,
+            "multiply": 0,
+            "sineAnalyser": 0,
+            "inputSlider": 1
+          },
+          "lockStates": {
+            "lockMove": true,
+            "lockSpace": true,
+            "lockZoom": true,
+            "lockPan": true,
+            "lockConnectors": false,
+            "lockFocus": true
+          }
+        };
+        
+        // Embedded EvB24 demo data (simplified)
+        window.EVB24_DEMO = {
+          "camera": {
+            "x": 200,
+            "y": -50,
+            "zoom": 1.2
+          },
+          "windows": [
+            {
+              "x": 0,
+              "y": -100,
+              "width": 120,
+              "height": 80,
+              "title": "Sine Generator",
+              "type": "sineGen",
+              "blockName": "sineGen_1",
+              "flipped": false,
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "sineGen_1_input_0",
+                  "x": 0,
+                  "y": -80,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "sineGen_1_input_1",
+                  "x": 0,
+                  "y": -60,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "sineGen_1_input_2",
+                  "x": 0,
+                  "y": -40,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "sineGen_1_output_0",
+                  "x": 120,
+                  "y": -60,
+                  "type": "output",
+                  "value": 0
+                }
+              ],
+              "physics": null,
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "amplitude": 1000,
+              "frequency": 0.5,
+              "phase": 0,
+              "plotData": []
+            },
+            {
+              "x": 200,
+              "y": -100,
+              "width": 200,
+              "height": 140,
+              "title": "Spring-Mass-Damper",
+              "type": "springMassDamper",
+              "blockName": "springMassDamper_1",
+              "flipped": false,
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "springMassDamper_1_input_0",
+                  "x": 200,
+                  "y": -30,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "springMassDamper_1_output_0",
+                  "x": 400,
+                  "y": -72,
+                  "type": "output",
+                  "value": 0
+                },
+                {
+                  "id": "springMassDamper_1_output_1",
+                  "x": 400,
+                  "y": -44,
+                  "type": "output",
+                  "value": 0
+                },
+                {
+                  "id": "springMassDamper_1_output_2",
+                  "x": 400,
+                  "y": -16,
+                  "type": "output",
+                  "value": 0
+                }
+              ],
+              "physics": {
+                "x": 100,
+                "y": 92.5,
+                "velocity": { "x": 0, "y": 0 },
+                "acceleration": { "x": 0, "y": 0 },
+                "type": "springMassDamper",
+                "restPosition": 100,
+                "springConstant": 50,
+                "dampingCoeff": 10,
+                "windowX": 200,
+                "windowY": -100,
+                "windowWidth": 200,
+                "windowHeight": 140,
+                "mass": 0.1,
+                "friction": 0.1,
+                "size": 15,
+                "groundY": 100,
+                "springAttachX": 30
+              },
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "plotData": []
+            },
+            {
+              "x": 450,
+              "y": -150,
+              "width": 200,
+              "height": 140,
+              "title": "Graph",
+              "type": "graph",
+              "blockName": "graph_1",
+              "flipped": false,
+              "value": 0,
+              "min": 0,
+              "max": 100,
+              "step": 1,
+              "focused": false,
+              "editing": false,
+              "editText": "",
+              "editCursor": 0,
+              "ports": [
+                {
+                  "id": "graph_1_input_0",
+                  "x": 450,
+                  "y": -115,
+                  "type": "input",
+                  "value": 0
+                },
+                {
+                  "id": "graph_1_input_1",
+                  "x": 450,
+                  "y": -45,
+                  "type": "input",
+                  "value": 0
+                }
+              ],
+              "physics": null,
+              "graphData1": [],
+              "graphData2": [],
+              "timeStep": 0,
+              "maxDataPoints": 200,
+              "leftYMin": -1000,
+              "leftYMax": 1000,
+              "rightYMin": -100,
+              "rightYMax": 100,
+              "plotData": []
+            }
+          ],
+          "connectors": [
+            {
+              "id": "sineGen_1_output_0_to_springMassDamper_1_input_0",
+              "startPortId": "sineGen_1_output_0",
+              "endPortId": "springMassDamper_1_input_0",
+              "nodes": []
+            },
+            {
+              "id": "sineGen_1_output_0_to_graph_1_input_0",
+              "startPortId": "sineGen_1_output_0",
+              "endPortId": "graph_1_input_0",
+              "nodes": []
+            },
+            {
+              "id": "springMassDamper_1_output_0_to_graph_1_input_1",
+              "startPortId": "springMassDamper_1_output_0",
+              "endPortId": "graph_1_input_1",
+              "nodes": []
+            }
+          ],
+          "blockCounters": {
+            "sineGen": 1,
+            "springMassDamper": 1,
+            "graph": 1
+          }
+        };
+    </script>
+    <script src="main.js"></script>
+    <!-- <script src="magnetTurner.js"></script> -->
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const button = document.querySelector('.theme-toggle');
+            
+            if (body.hasAttribute('data-theme')) {
+                // Switch to dark mode
+                body.removeAttribute('data-theme');
+                button.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                // Switch to light mode
+                body.setAttribute('data-theme', 'light');
+                button.textContent = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+        
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const button = document.querySelector('.theme-toggle');
+            
+            if (savedTheme === 'light') {
+                document.body.setAttribute('data-theme', 'light');
+                button.textContent = '🌙 Dark Mode';
+            } else {
+                button.textContent = '☀️ Light Mode';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1221 @@
+{
+  "camera": {
+    "x": 247.72686832272296,
+    "y": -90.21681234666279,
+    "zoom": 1.1563006767955126
+  },
+  "windows": [
+    {
+      "x": -125,
+      "y": -150,
+      "width": 100,
+      "height": 50,
+      "title": "Number",
+      "type": "inputNumber",
+      "blockName": "inputNumber_13",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "inputNumber_13_output_0",
+          "x": -25,
+          "y": -125,
+          "type": "output",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": -125,
+      "y": -225,
+      "width": 100,
+      "height": 50,
+      "title": "Number",
+      "type": "inputNumber",
+      "blockName": "inputNumber_12",
+      "flipped": false,
+      "value": 1,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "inputNumber_12_output_0",
+          "x": -25,
+          "y": -200,
+          "type": "output",
+          "value": 1
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 25,
+      "y": -325,
+      "width": 80,
+      "height": 50,
+      "title": "Clock",
+      "type": "clock",
+      "blockName": "clock_1",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "clock_1_output_0",
+          "x": 105,
+          "y": -300,
+          "type": "output",
+          "value": 1
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 500,
+      "y": -425,
+      "width": 200,
+      "height": 140,
+      "title": "Graph",
+      "type": "graph",
+      "blockName": "graph_4",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "graph_4_input_0",
+          "x": 500,
+          "y": -390,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "graph_4_input_1",
+          "x": 500,
+          "y": -320,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 55756,
+      "maxDataPoints": 200,
+      "leftYMin": -100,
+      "leftYMax": 100,
+      "rightYMin": -20,
+      "rightYMax": 20,
+      "plotData": []
+    },
+    {
+      "x": 300,
+      "y": -325,
+      "width": 100,
+      "height": 50,
+      "title": "Output",
+      "type": "outputNumber",
+      "blockName": "outputNumber_13",
+      "flipped": false,
+      "value": 4.100000000000001,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "outputNumber_13_input_0",
+          "x": 300,
+          "y": -300,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 225,
+      "y": 50,
+      "width": 100,
+      "height": 50,
+      "title": "Number",
+      "type": "inputNumber",
+      "blockName": "inputNumber_15",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "inputNumber_15_output_0",
+          "x": 325,
+          "y": 75,
+          "type": "output",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 400,
+      "y": 0,
+      "width": 120,
+      "height": 80,
+      "title": "Sine Generator",
+      "type": "sineGen",
+      "blockName": "sineGen_4",
+      "flipped": false,
+      "value": 645.4576877245333,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "sineGen_4_input_0",
+          "x": 400,
+          "y": 20,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "sineGen_4_input_1",
+          "x": 400,
+          "y": 40,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "sineGen_4_input_2",
+          "x": 400,
+          "y": 60,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "sineGen_4_output_0",
+          "x": 520,
+          "y": 40,
+          "type": "output",
+          "value": 645.4576877245333
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "amplitude": 1000,
+      "frequency": 4.100000000000001,
+      "phase": 0,
+      "plotData": []
+    },
+    {
+      "x": 225,
+      "y": -25,
+      "width": 100,
+      "height": 50,
+      "title": "Number",
+      "type": "inputNumber",
+      "blockName": "inputNumber_14",
+      "flipped": false,
+      "value": 1000,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "inputNumber_14_output_0",
+          "x": 325,
+          "y": 0,
+          "type": "output",
+          "value": 1000
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 600,
+      "y": 100,
+      "width": 200,
+      "height": 140,
+      "title": "Spring-Mass-Damper",
+      "type": "springMassDamper",
+      "blockName": "springMassDamper_2",
+      "flipped": false,
+      "value": 60.5712719724082,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "springMassDamper_2_input_0",
+          "x": 600,
+          "y": 170,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "springMassDamper_2_output_0",
+          "x": 800,
+          "y": 128,
+          "type": "output",
+          "value": -2.5900735010786633
+        },
+        {
+          "id": "springMassDamper_2_output_1",
+          "x": 800,
+          "y": 156,
+          "type": "output",
+          "value": 60.5712719724082
+        },
+        {
+          "id": "springMassDamper_2_output_2",
+          "x": 800,
+          "y": 184,
+          "type": "output",
+          "value": 2352.1974611570968
+        }
+      ],
+      "physics": {
+        "x": 97.40992649892134,
+        "y": 92.5,
+        "velocity": {
+          "x": 60.5712719724082,
+          "y": 0
+        },
+        "acceleration": {
+          "x": 2352.1974611570968,
+          "y": 0
+        },
+        "type": "springMassDamper",
+        "restPosition": 100,
+        "springConstant": 50,
+        "dampingCoeff": 10,
+        "windowX": 600,
+        "windowY": 100,
+        "windowWidth": 200,
+        "windowHeight": 140,
+        "mass": 0.1,
+        "friction": 0.1,
+        "size": 15,
+        "groundY": 100,
+        "springAttachX": 30
+      },
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 850,
+      "y": 25,
+      "width": 160,
+      "height": 120,
+      "title": "Sine Analyser",
+      "type": "sineAnalyser",
+      "blockName": "sineAnalyser_2",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "sineAnalyser_2_input_0",
+          "x": 850,
+          "y": 65,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "sineAnalyser_2_input_1",
+          "x": 850,
+          "y": 105,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "sineAnalyser_2_output_0",
+          "x": 1010,
+          "y": 45,
+          "type": "output",
+          "value": 4
+        },
+        {
+          "id": "sineAnalyser_2_output_1",
+          "x": 1010,
+          "y": 65,
+          "type": "output",
+          "value": 996.6207641016235
+        },
+        {
+          "id": "sineAnalyser_2_output_2",
+          "x": 1010,
+          "y": 85,
+          "type": "output",
+          "value": 4
+        },
+        {
+          "id": "sineAnalyser_2_output_3",
+          "x": 1010,
+          "y": 105,
+          "type": "output",
+          "value": 4.023501585597108
+        },
+        {
+          "id": "sineAnalyser_2_output_4",
+          "x": 1010,
+          "y": 125,
+          "type": "output",
+          "value": -1.2787368636718521
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "topFrequency": 4,
+      "topAmplitude": 996.6207641016235,
+      "bottomFrequency": 4,
+      "bottomAmplitude": 4.023501585597108,
+      "phaseDifference": -1.2787368636718521,
+      "plotData": []
+    },
+    {
+      "x": 850,
+      "y": -150,
+      "width": 200,
+      "height": 140,
+      "title": "Graph",
+      "type": "graph",
+      "blockName": "graph_5",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "graph_5_input_0",
+          "x": 850,
+          "y": -115,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "graph_5_input_1",
+          "x": 850,
+          "y": -45,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 49429,
+      "maxDataPoints": 200,
+      "leftYMin": -1000,
+      "leftYMax": 1000,
+      "rightYMin": -20,
+      "rightYMax": 20,
+      "plotData": []
+    },
+    {
+      "x": 1050,
+      "y": 125,
+      "width": 100,
+      "height": 60,
+      "title": "rad2deg",
+      "type": "rad2deg",
+      "blockName": "rad2deg_1",
+      "flipped": false,
+      "value": -73.33286883809772,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "rad2deg_1_input_0",
+          "x": 1050,
+          "y": 155,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "rad2deg_1_output_0",
+          "x": 1150,
+          "y": 155,
+          "type": "output",
+          "value": -73.33286883809772
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1175,
+      "y": 125,
+      "width": 60,
+      "height": 40,
+      "title": "Offset",
+      "type": "offset",
+      "blockName": "offset_1",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "offset_1_input_0",
+          "x": 1175,
+          "y": 145,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "offset_1_output_0",
+          "x": 1235,
+          "y": 145,
+          "type": "output",
+          "value": -73.49775667168183
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1050,
+      "y": 25,
+      "width": 60,
+      "height": 40,
+      "title": "Gain",
+      "type": "gain",
+      "blockName": "gain_2",
+      "flipped": false,
+      "value": 0.02,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "gain_2_input_0",
+          "x": 1050,
+          "y": 45,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "gain_2_output_0",
+          "x": 1110,
+          "y": 45,
+          "type": "output",
+          "value": 19.899351628601593
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1150,
+      "y": 25,
+      "width": 80,
+      "height": 60,
+      "title": "Divide",
+      "type": "divide",
+      "blockName": "divide_1",
+      "flipped": false,
+      "value": 0.20264789811749612,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "divide_1_input_0",
+          "x": 1150,
+          "y": 45,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "divide_1_input_1",
+          "x": 1150,
+          "y": 65,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "divide_1_output_0",
+          "x": 1230,
+          "y": 55,
+          "type": "output",
+          "value": 0.20264789811749612
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1125,
+      "y": -125,
+      "width": 100,
+      "height": 50,
+      "title": "Output",
+      "type": "outputNumber",
+      "blockName": "outputNumber_14",
+      "flipped": false,
+      "value": 0.2028932511424461,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "outputNumber_14_input_0",
+          "x": 1125,
+          "y": -100,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1125,
+      "y": -50,
+      "width": 100,
+      "height": 50,
+      "title": "Output",
+      "type": "outputNumber",
+      "blockName": "outputNumber_15",
+      "flipped": false,
+      "value": -73.5765859701914,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "outputNumber_15_input_0",
+          "x": 1125,
+          "y": -25,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 175,
+      "y": -250,
+      "width": 100,
+      "height": 60,
+      "title": "Counter",
+      "type": "counter",
+      "blockName": "counter_1",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "counter_1_input_0",
+          "x": 175,
+          "y": -230,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "counter_1_input_1",
+          "x": 175,
+          "y": -210,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "counter_1_output_0",
+          "x": 275,
+          "y": -220,
+          "type": "output",
+          "value": 4.100000000000001
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": [],
+      "startValue": 0.1,
+      "stopValue": 10,
+      "stepSize": 0.1,
+      "count": 4.100000000000001,
+      "lastInput": 0,
+      "lastResetInput": 1
+    },
+    {
+      "x": 1300,
+      "y": -300,
+      "width": 200,
+      "height": 140,
+      "title": "XY Plot",
+      "type": "xyPlot",
+      "blockName": "xyPlot_1",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "xyPlot_1_input_0",
+          "x": 1300,
+          "y": -272,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_1_input_1",
+          "x": 1300,
+          "y": -244,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_1_input_2",
+          "x": 1300,
+          "y": -216,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_1_input_3",
+          "x": 1300,
+          "y": -188,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": [],
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": 0,
+      "yMax": 1,
+      "xLogScale": true,
+      "yLogScale": true
+    },
+    {
+      "x": 1300,
+      "y": -125,
+      "width": 200,
+      "height": 140,
+      "title": "XY Plot",
+      "type": "xyPlot",
+      "blockName": "xyPlot_5",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "xyPlot_5_input_0",
+          "x": 1300,
+          "y": -97,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_5_input_1",
+          "x": 1300,
+          "y": -69,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_5_input_2",
+          "x": 1300,
+          "y": -41,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "xyPlot_5_input_3",
+          "x": 1300,
+          "y": -13,
+          "type": "input",
+          "value": 0
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": [],
+      "xMin": 0,
+      "xMax": 10,
+      "yMin": -120,
+      "yMax": 0,
+      "xLogScale": true,
+      "yLogScale": true
+    },
+    {
+      "x": 25,
+      "y": -200,
+      "width": 80,
+      "height": 60,
+      "title": "Selector",
+      "type": "selector",
+      "blockName": "selector_1",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [
+        {
+          "id": "selector_1_input_0",
+          "x": 25,
+          "y": -180,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "selector_1_input_1",
+          "x": 25,
+          "y": -160,
+          "type": "input",
+          "value": 0
+        },
+        {
+          "id": "selector_1_output_0",
+          "x": 105,
+          "y": -170,
+          "type": "output",
+          "value": 1
+        }
+      ],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": []
+    },
+    {
+      "x": 1352.5944808821819,
+      "y": -331.9186156858185,
+      "width": 150,
+      "height": 50,
+      "title": "Text",
+      "type": "text",
+      "blockName": "text_2",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": false,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": [],
+      "textContent": "Amplitude",
+      "fontSize": 12,
+      "editingText": false
+    },
+    {
+      "x": 1376.7296539214547,
+      "y": -159.51309656800046,
+      "width": 150,
+      "height": 50,
+      "title": "Text",
+      "type": "text",
+      "blockName": "text_3",
+      "flipped": false,
+      "value": 0,
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "focused": true,
+      "editing": false,
+      "editText": "",
+      "editCursor": 0,
+      "ports": [],
+      "physics": null,
+      "graphData1": [],
+      "graphData2": [],
+      "timeStep": 0,
+      "maxDataPoints": 200,
+      "plotData": [],
+      "textContent": "Phase",
+      "fontSize": 12,
+      "editingText": false
+    }
+  ],
+  "connectors": [
+    {
+      "id": "inputNumber_12_output_0_to_selector_1_input_0",
+      "startPortId": "inputNumber_12_output_0",
+      "endPortId": "selector_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "inputNumber_13_output_0_to_selector_1_input_1",
+      "startPortId": "inputNumber_13_output_0",
+      "endPortId": "selector_1_input_1",
+      "nodes": []
+    },
+    {
+      "id": "clock_1_output_0_to_counter_1_input_0",
+      "startPortId": "clock_1_output_0",
+      "endPortId": "counter_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "selector_1_output_0_to_counter_1_input_1",
+      "startPortId": "selector_1_output_0",
+      "endPortId": "counter_1_input_1",
+      "nodes": []
+    },
+    {
+      "id": "counter_1_output_0_to_outputNumber_13_input_0",
+      "startPortId": "counter_1_output_0",
+      "endPortId": "outputNumber_13_input_0",
+      "nodes": []
+    },
+    {
+      "id": "counter_1_output_0_to_graph_4_input_1",
+      "startPortId": "counter_1_output_0",
+      "endPortId": "graph_4_input_1",
+      "nodes": []
+    },
+    {
+      "id": "clock_1_output_0_to_graph_4_input_0",
+      "startPortId": "clock_1_output_0",
+      "endPortId": "graph_4_input_0",
+      "nodes": []
+    },
+    {
+      "id": "inputNumber_14_output_0_to_sineGen_4_input_0",
+      "startPortId": "inputNumber_14_output_0",
+      "endPortId": "sineGen_4_input_0",
+      "nodes": []
+    },
+    {
+      "id": "counter_1_output_0_to_sineGen_4_input_1",
+      "startPortId": "counter_1_output_0",
+      "endPortId": "sineGen_4_input_1",
+      "nodes": []
+    },
+    {
+      "id": "inputNumber_15_output_0_to_sineGen_4_input_2",
+      "startPortId": "inputNumber_15_output_0",
+      "endPortId": "sineGen_4_input_2",
+      "nodes": []
+    },
+    {
+      "id": "sineGen_4_output_0_to_springMassDamper_2_input_0",
+      "startPortId": "sineGen_4_output_0",
+      "endPortId": "springMassDamper_2_input_0",
+      "nodes": []
+    },
+    {
+      "id": "springMassDamper_2_output_0_to_sineAnalyser_2_input_1",
+      "startPortId": "springMassDamper_2_output_0",
+      "endPortId": "sineAnalyser_2_input_1",
+      "nodes": []
+    },
+    {
+      "id": "sineGen_4_output_0_to_sineAnalyser_2_input_0",
+      "startPortId": "sineGen_4_output_0",
+      "endPortId": "sineAnalyser_2_input_0",
+      "nodes": []
+    },
+    {
+      "id": "sineGen_4_output_0_to_graph_5_input_0",
+      "startPortId": "sineGen_4_output_0",
+      "endPortId": "graph_5_input_0",
+      "nodes": []
+    },
+    {
+      "id": "springMassDamper_2_output_0_to_graph_5_input_1",
+      "startPortId": "springMassDamper_2_output_0",
+      "endPortId": "graph_5_input_1",
+      "nodes": []
+    },
+    {
+      "id": "sineAnalyser_2_output_4_to_rad2deg_1_input_0",
+      "startPortId": "sineAnalyser_2_output_4",
+      "endPortId": "rad2deg_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "rad2deg_1_output_0_to_offset_1_input_0",
+      "startPortId": "rad2deg_1_output_0",
+      "endPortId": "offset_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "sineAnalyser_2_output_1_to_gain_2_input_0",
+      "startPortId": "sineAnalyser_2_output_1",
+      "endPortId": "gain_2_input_0",
+      "nodes": []
+    },
+    {
+      "id": "gain_2_output_0_to_divide_1_input_1",
+      "startPortId": "gain_2_output_0",
+      "endPortId": "divide_1_input_1",
+      "nodes": []
+    },
+    {
+      "id": "sineAnalyser_2_output_3_to_divide_1_input_0",
+      "startPortId": "sineAnalyser_2_output_3",
+      "endPortId": "divide_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "divide_1_output_0_to_outputNumber_14_input_0",
+      "startPortId": "divide_1_output_0",
+      "endPortId": "outputNumber_14_input_0",
+      "nodes": []
+    },
+    {
+      "id": "offset_1_output_0_to_outputNumber_15_input_0",
+      "startPortId": "offset_1_output_0",
+      "endPortId": "outputNumber_15_input_0",
+      "nodes": []
+    },
+    {
+      "id": "divide_1_output_0_to_xyPlot_1_input_1",
+      "startPortId": "divide_1_output_0",
+      "endPortId": "xyPlot_1_input_1",
+      "nodes": []
+    },
+    {
+      "id": "counter_1_output_0_to_xyPlot_1_input_0",
+      "startPortId": "counter_1_output_0",
+      "endPortId": "xyPlot_1_input_0",
+      "nodes": []
+    },
+    {
+      "id": "clock_1_output_0_to_xyPlot_1_input_2",
+      "startPortId": "clock_1_output_0",
+      "endPortId": "xyPlot_1_input_2",
+      "nodes": []
+    },
+    {
+      "id": "selector_1_output_0_to_xyPlot_1_input_3",
+      "startPortId": "selector_1_output_0",
+      "endPortId": "xyPlot_1_input_3",
+      "nodes": []
+    },
+    {
+      "id": "offset_1_output_0_to_xyPlot_5_input_1",
+      "startPortId": "offset_1_output_0",
+      "endPortId": "xyPlot_5_input_1",
+      "nodes": []
+    },
+    {
+      "id": "counter_1_output_0_to_xyPlot_5_input_0",
+      "startPortId": "counter_1_output_0",
+      "endPortId": "xyPlot_5_input_0",
+      "nodes": []
+    },
+    {
+      "id": "clock_1_output_0_to_xyPlot_5_input_2",
+      "startPortId": "clock_1_output_0",
+      "endPortId": "xyPlot_5_input_2",
+      "nodes": []
+    },
+    {
+      "id": "selector_1_output_0_to_xyPlot_5_input_3",
+      "startPortId": "selector_1_output_0",
+      "endPortId": "xyPlot_5_input_3",
+      "nodes": []
+    }
+  ],
+  "blockCounters": {
+    "inputNumber": 31,
+    "deg2rad": 3,
+    "sineGen": 8,
+    "gain": 6,
+    "graph": 13,
+    "springMassDamper": 6,
+    "outputNumber": 27,
+    "physicsBasic": 1,
+    "multiply": 1,
+    "sineAnalyser": 6,
+    "text": 3,
+    "selector": 5,
+    "clock": 5,
+    "counter": 5,
+    "rad2deg": 5,
+    "offset": 5,
+    "divide": 5,
+    "xyPlot": 7
+  }
+}
